@@ -1,0 +1,19 @@
+{
+SELECT     1 AS [C1],  CAST( [GroupBy1].[K1] AS datetime2) AS [C2],  [GroupBy1].[A1] AS [C3]   
+     FROM 
+     (
+      SELECT    [Extent1].[EnrollmentDate] AS [K1],  COUNT(1) AS [A1]  
+                   FROM [dbo].[Student] AS [Extent1]      
+                     GROUP BY [Extent1].[EnrollmentDate]   
+                     
+                      )
+                     
+                       AS [GroupBy1]}
+                       
+                       
+ {SELECT 
+    [Extent1].[ID] AS [ID], 
+    [Extent1].[LastName] AS [LastName], 
+    [Extent1].[FirstMidName] AS [FirstMidName], 
+    [Extent1].[EnrollmentDate] AS [EnrollmentDate]
+    FROM [dbo].[Student] AS [Extent1]}                      
