@@ -10,6 +10,12 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/json.js"></script>
+    <style type="text/css">
+        .GreenMsg {
+            color: green;
+        }
+    </style>
     <title>Index</title>
 </head>
 <body>
@@ -44,11 +50,26 @@
                 }
 
                 // take the data and post it via json
-                $.post("/PersonAjaxJSON/Save", person, function (data) {
-                    // get the result and do some magic with it
-                    var message = data.Message;
-                    $("#resultMessage").html(message);
+                //$.post("/PersonAjaxJSON/Save", person, function (data) {
+                //    // get the result and do some magic with it
+                //    var message = data.Message;
+                //    $("#resultMessage").html(message);
+                //});
+
+                var json = $.toJSON(person);
+                $.ajax({
+                    url: "/PersonAjaxJSON/Save",
+                    type: "POST",
+                    dataType: "json",
+                    data: json,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        // get the result and do some magic with it
+                        var message = data.Message;
+                        $("#resultMessage").html(message).addClass("GreenMsg");
+                    }
                 });
+
             });
         });
 

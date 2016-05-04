@@ -26,8 +26,46 @@ namespace ContosoUniversity.Controllers
         [HttpPost]
         public ActionResult Save(PersonAjaxJSON ajaxJSON)
         {
-            string msg = string.Format("Created user {0} in the system.", ajaxJSON.Name);
-            return Json(new PersonAjaxJSONViewModel { Message = msg });
+            //db.PersonAjaxJSONs.Add(
+            //    new PersonAjaxJSON
+            //    {
+            //        Name = ajaxJSON.Name,
+            //        Age = ajaxJSON.Age
+            //    });
+            //db.SaveChanges();
+
+            //string msg = string.Format("Created user {0} in the system.", ajaxJSON.Name);
+            //return Json(new PersonAjaxJSONViewModel { Message = msg });
+
+            if (ModelState.IsValid)
+            {
+                db.PersonAjaxJSONs.Add(
+                new PersonAjaxJSON
+                {
+                    Name = ajaxJSON.Name,
+                    Age = ajaxJSON.Age
+                });
+                db.SaveChanges();
+                string message = string.Format("Created user '{0}' aged '{1}' in the system."
+                  , ajaxJSON.Name, ajaxJSON.Age);
+                return Json(new PersonAjaxJSONViewModel { Message = message });
+            }
+            else
+            {
+                string errorMessage = "<div class=\"validation-summary-errors\">"
+                  + "The following errors occurred:<ul>";
+                foreach (var key in ModelState.Keys)
+                {
+                    var error = ModelState[key].Errors.FirstOrDefault();
+                    if (error != null)
+                    {
+                        errorMessage += "<li class=\"field-validation-error\">"
+                         + error.ErrorMessage + "</li>";
+                    }
+                }
+                errorMessage += "</ul>";
+                return Json(new PersonAjaxJSONViewModel { Message = errorMessage });
+            }
         }
 
 
