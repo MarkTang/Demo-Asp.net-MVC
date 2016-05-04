@@ -20,6 +20,7 @@ namespace ContosoUniversity
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DbInterception.Add(new SchoolInterceptorTransientErrors());
             DbInterception.Add(new SchoolInterceptorLogging());
+            ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
         }
     }
 }

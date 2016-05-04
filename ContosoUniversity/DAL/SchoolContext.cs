@@ -29,5 +29,6 @@ namespace ContosoUniversity.DAL
             modelBuilder.Entity<Department>().MapToStoredProcedures();
         }
 
+        public System.Data.Entity.DbSet<ContosoUniversity.Models.PersonAjaxJSON> PersonAjaxJSONs { get; set; }
     }
 }
