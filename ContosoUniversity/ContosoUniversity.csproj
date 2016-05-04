@@ -220,6 +220,10 @@
     <Compile Include="Migrations\201605041515221_PersonAjaxJSON Model.Designer.cs">
       <DependentUpon>201605041515221_PersonAjaxJSON Model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605041649169_Age int isn%27t null.cs" />
+    <Compile Include="Migrations\201605041649169_Age int isn%27t null.Designer.cs">
+      <DependentUpon>201605041649169_Age int isn%27t null.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
@@ -342,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605041515221_PersonAjaxJSON Model.resx">
       <DependentUpon>201605041515221_PersonAjaxJSON Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605041649169_Age int isn%27t null.resx">
+      <DependentUpon>201605041649169_Age int isn%27t null.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
