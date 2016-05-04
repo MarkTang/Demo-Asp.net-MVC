@@ -8,5 +8,6 @@ namespace ContosoUniversity.ViewModels
     public class PersonAjaxJSONViewModel
     {
         public string Message { get; set; }
+        public bool ExistName { get; set; }
     }
 }

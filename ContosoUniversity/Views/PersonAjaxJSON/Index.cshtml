@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<ContosoUniversity.Models.PersonAjaxJSON>
+@*@model ContosoUniversity.Models.PersonAjaxJSON*@
 
 @{
     Layout = null;
@@ -11,6 +12,8 @@
     <meta name="viewport" content="width=device-width" />
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/json.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <style type="text/css">
         .GreenMsg {
             color: green;
@@ -20,6 +23,29 @@
 </head>
 <body>
 
+    <div class="form-group row">
+        @*@Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "checkphoneno", placeholder = "请输入新患者的常用手机号码", onblur = "checkPhoneNo()" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger form-error" })
+            </div>
+            <div id="checkphonediv" class="col-md-2" style="display:none">
+                <div id="newpatient">
+                    <span style="color: green; display:none">新用户</span>
+                </div>
+                <div id="existpatient">
+                    <span style="color: red; display:none">请重新输入号码</span>
+                </div>
+            </div>*@
+        <div class="editor-label">
+            <label for="Name">Name</label>
+        </div>
+        <div class="editor-field">
+            <input class="text-box single-line" id="checkphoneno" name="Name" type="text" value="" onblur="checkPhoneNo()" />
+        </div>
+    </div>
+    <div><span id="checkNameMsg"></span></div>
+    <br /><br /><br />
 
     <div class="editor-label">
         <label for="Name">Name</label>
@@ -38,6 +64,39 @@
     <div><span id="resultMessage"></span></div>
 
     <script type="text/javascript">
+
+        function getName() {
+            var name = $("#checkphoneno").val();
+            // poor man's validation
+            return { Name: name };
+        }
+
+        function checkPhoneNo() {
+            //var value = $("#checkphoneno").val();
+            var value = getName();
+            var json = $.toJSON(value);
+            $.ajax({
+                url: "/PersonAjaxJSON/CheckPatientPhoneNo",
+                type: "GET",
+                dataType: "json",
+                data: json,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    //var phoneNo = data.ExistName;
+                    //alert(phoneNo);
+                    var message = data.Message;
+                    $("#checkNameMsg").html(message).addClass("GreenMsg");
+                }
+            });
+
+            //if (value.length != 0) {
+            //    var msg = "新用户";
+            //    var msgDiv = $("#newpatient");
+            //    var msgSpan = "<span style=\"color:green\">" + msg + "</span>"
+            //    msgDiv.html(msgSpan);
+            //    msgDiv.show();
+            //}
+        }
 
         $(function () {
             $("#personCreate").click(function () {

@@ -23,6 +23,15 @@ namespace ContosoUniversity.Controllers
             return View(db.PersonAjaxJSONs.ToList());
         }
 
+        public ActionResult CheckPatientPhoneNo(PersonAjaxJSON ajaxJSON)
+        {
+            var phoneNo = db.PersonAjaxJSONs.Where(a => a.Name.Contains(ajaxJSON.Name));
+            bool isExistPhoneNo = phoneNo == null ? false : true;
+            string message = string.Format("Name {0} IS EXIST."
+                  , ajaxJSON.Name);
+            return Json(new PersonAjaxJSONViewModel { Message = message });
+        }
+
         [HttpPost]
         public ActionResult Save(PersonAjaxJSON ajaxJSON)
         {
