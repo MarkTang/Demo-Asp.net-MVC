@@ -172,6 +172,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
+    <Compile Include="Controllers\jQueryStepsController.cs" />
     <Compile Include="Controllers\PersonAjaxJSONController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="DAL\SchoolConfiguration.cs" />
@@ -261,6 +262,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.steps.js" />
+    <Content Include="Scripts\jquery.steps.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -311,6 +314,7 @@
     <Content Include="Views\PersonAjaxJSON\Details.cshtml" />
     <Content Include="Views\PersonAjaxJSON\Edit.cshtml" />
     <Content Include="Views\PersonAjaxJSON\Index.cshtml" />
+    <Content Include="Views\jQuerySteps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
