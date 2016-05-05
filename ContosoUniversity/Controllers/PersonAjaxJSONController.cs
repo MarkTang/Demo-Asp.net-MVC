@@ -43,7 +43,7 @@ namespace ContosoUniversity.Controllers
             string message = isExistPhoneNo ?
                 string.Format("Name {0} IS EXIST..", phoneNumber) :
                 string.Format("You {0} is new !!!", phoneNumber);
-            return Json(new PersonAjaxJSONViewModel { Message = message, ExistName = isExistPhoneNo },JsonRequestBehavior.AllowGet);
+            return Json(new PersonAjaxJSONViewModel { Message = message, ExistName = isExistPhoneNo }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

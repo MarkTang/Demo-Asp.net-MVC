@@ -73,8 +73,8 @@
             var value = $("#checkphoneno").val();
             $.ajax({
                 url: "/PersonAjaxJSON/GetCheckPatientPhoneNo?phoneNumber=" + value,
-                type: "GET",
-               // dataType: "json",
+                //type: "GET",
+                // dataType: "json",
                 //data: value,
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
