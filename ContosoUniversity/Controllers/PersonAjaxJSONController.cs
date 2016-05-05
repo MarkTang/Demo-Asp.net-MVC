@@ -12,7 +12,7 @@ using ContosoUniversity.ViewModels;
 
 namespace ContosoUniversity.Controllers
 {
-    [HandleError]
+    //[HandleError]
     public class PersonAjaxJSONController : Controller
     {
         private SchoolContext db = new SchoolContext();
@@ -26,10 +26,24 @@ namespace ContosoUniversity.Controllers
         public ActionResult CheckPatientPhoneNo(PersonAjaxJSON ajaxJSON)
         {
             var phoneNo = db.PersonAjaxJSONs.Where(a => a.Name.Contains(ajaxJSON.Name));
-            bool isExistPhoneNo = phoneNo == null ? false : true;
-            string message = string.Format("Name {0} IS EXIST."
-                  , ajaxJSON.Name);
-            return Json(new PersonAjaxJSONViewModel { Message = message });
+            bool isExistPhoneNo = phoneNo.Count() == 0 ? false : true;
+
+            string message = isExistPhoneNo ?
+                string.Format("Name {0} IS EXIST..", ajaxJSON.Name) :
+                string.Format("You {0} is new !!!", ajaxJSON.Name);
+            return Json(new PersonAjaxJSONViewModel { Message = message, ExistName = isExistPhoneNo });
+        }
+
+        [HttpGet]
+        public ActionResult GetCheckPatientPhoneNo(string phoneNumber)
+        {
+            var phoneNo = db.PersonAjaxJSONs.Where(a => a.Name.Contains(phoneNumber));
+            bool isExistPhoneNo = phoneNo.Count() == 0 ? false : true;
+
+            string message = isExistPhoneNo ?
+                string.Format("Name {0} IS EXIST..", phoneNumber) :
+                string.Format("You {0} is new !!!", phoneNumber);
+            return Json(new PersonAjaxJSONViewModel { Message = message, ExistName = isExistPhoneNo },JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
