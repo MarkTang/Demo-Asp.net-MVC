@@ -175,6 +175,7 @@
     <Compile Include="Controllers\jQueryStepsController.cs" />
     <Compile Include="Controllers\PersonAjaxJSONController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\YearMonthDayController.cs" />
     <Compile Include="DAL\SchoolConfiguration.cs" />
     <Compile Include="DAL\SchoolContext.cs" />
     <Compile Include="DAL\SchoolInitializer.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="Models\OfficeAssignment.cs" />
     <Compile Include="Models\PersonAjaxJSON.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\YearMonthDay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AssignedCourseData.cs" />
     <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
@@ -315,6 +317,7 @@
     <Content Include="Views\PersonAjaxJSON\Edit.cshtml" />
     <Content Include="Views\PersonAjaxJSON\Index.cshtml" />
     <Content Include="Views\jQuerySteps\Index.cshtml" />
+    <Content Include="Views\YearMonthDay\YearMonthDay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -30,5 +30,7 @@ namespace ContosoUniversity.DAL
         }
 
         public System.Data.Entity.DbSet<ContosoUniversity.Models.PersonAjaxJSON> PersonAjaxJSONs { get; set; }
+
+        public System.Data.Entity.DbSet<ContosoUniversity.Models.YearMonthDay> YearMonthDays { get; set; }
     }
 }
