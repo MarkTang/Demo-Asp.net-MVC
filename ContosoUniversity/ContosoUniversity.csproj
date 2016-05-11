@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201605041756311_public bool ExistName.Designer.cs">
       <DependentUpon>201605041756311_public bool ExistName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605110212072_ YYYYYYYYYYYYY.cs" />
+    <Compile Include="Migrations\201605110212072_ YYYYYYYYYYYYY.Designer.cs">
+      <DependentUpon>201605110212072_ YYYYYYYYYYYYY.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
@@ -363,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605041756311_public bool ExistName.resx">
       <DependentUpon>201605041756311_public bool ExistName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605110212072_ YYYYYYYYYYYYY.resx">
+      <DependentUpon>201605110212072_ YYYYYYYYYYYYY.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
