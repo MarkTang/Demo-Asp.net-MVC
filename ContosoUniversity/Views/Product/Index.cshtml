@@ -12,7 +12,51 @@
     <title>Index</title>
 </head>
 <body>
-    <div> 
+    <div>
+        <h2>All Products</h2>
+        <ul id="products" />
     </div>
+
+    <div>
+        <h2>Search by ID</h2>
+        <input type="text" id="prodId" size="5" />
+        <input type="button" value="Search" onclick="find();" />
+        <p id="product" />
+    </div>
+
+    <script src="scripts/jquery-2.2.0.min.js"></script>
+    <script src="scripts/jquery-2.0.3.min.js"></script>
+
+    <script type="text/javascript">
+        var uri = "/api/products";
+
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON(uri)
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, qw) {
+                        // Add a list item for the product.
+                        $("<li>", { text: formatItem(qw) }).appendTo($("#products"));
+                    });
+                });
+        });
+
+        function formatItem(item) {
+            return item.Name + ': $' + item.Price;
+        }
+
+        function find() {
+            var id = $("#prodId").val();
+            $.getJSON(uri + "/" + id)
+                .done(function (abc) {
+                    $("#product").text(formatItem(abc));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $("#product").text("Error: " + err);
+                });
+        }
+
+    </script>
 </body>
 </html>
