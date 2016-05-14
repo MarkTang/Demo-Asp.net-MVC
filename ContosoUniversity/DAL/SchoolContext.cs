@@ -1,6 +1,7 @@
 ﻿using ContosoUniversity.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
 
 namespace ContosoUniversity.DAL
 {
@@ -32,5 +33,6 @@ namespace ContosoUniversity.DAL
         public System.Data.Entity.DbSet<ContosoUniversity.Models.PersonAjaxJSON> PersonAjaxJSONs { get; set; }
 
         public System.Data.Entity.DbSet<ContosoUniversity.Models.YearMonthDay> YearMonthDays { get; set; }
+        public IQueryable<Product> Products { get; internal set; }
     }
 }
